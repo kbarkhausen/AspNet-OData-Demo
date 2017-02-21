@@ -1,0 +1,280 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OData Training (Part 1)",
+		"_postman_id": "c23c23af-90e2-5ffe-676d-589fc056b2d1",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "The OData endpoint (default)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "OData API endpoint (default)"
+			},
+			"response": []
+		},
+		{
+			"name": "2. The Metadata",
+			"request": {
+				"url": "http://localhost:43155/api/odata/$metadata",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "OData API endpoint (default)"
+			},
+			"response": []
+		},
+		{
+			"name": "3. Get Products",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get Products (?)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/products",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get Products (> $ 4.00)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=Price gt 4.00",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "6. Get Most Expensive Products (Top 3)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$orderby=Price desc&$top=3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get Some Products (using Projection)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$top=3&$select=Name, Price",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "8. Get Product With Category",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products(3)?$expand=Category",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "9. Get Product With Category (Simple)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products(3)?$select=Id,Name&$expand=Category($select=Name)",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10. Get Products (By Price with paging)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$orderby=Price asc&$top=3&$skip=3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "11. Get Products (by Name)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=Name eq 'Banana'",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "12. Get Products (by Name substring)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=contains(Name,'Ba')",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "13. Get Products (by Name substring)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=startswith(Name,'B')",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "14. Get Products (With long names)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=length(Name) gt 8",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "15. Get 3 Products (From a category)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$filter=Category/Name eq 'Fresh Produce'&$expand=Category&$top=3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16. Get Products Categories",
+			"request": {
+				"url": "http://localhost:43155/api/odata/ProductCategories",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "17. Get Products from a Category",
+			"request": {
+				"url": "http://localhost:43155/api/odata/ProductCategories?$filter=Name eq 'Bakery'&$expand=Products",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "18. Get Products (Circular Hierarchy)",
+			"request": {
+				"url": "http://localhost:43155/api/odata/ProductCategories?$filter=Name eq 'Bakery'&$expand=Products($expand=Category)",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "19. Limiting results using Query options",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products?$orderby=Price&$top=3",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "20. Adding a Product",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Name\" : \"Peaches\",\n\t\"Price\" : 3.56,\n\t\"ProductCategoryId\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "21. Updating a Product",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products(17)",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\" : 17,\n\t\"Name\" : \"Peaches\",\n\t\"Price\" : 3.44,\n\t\"ProductCategoryId\": 1\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "22. Deleting a Product",
+			"request": {
+				"url": "http://localhost:43155/api/odata/Products(17)",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
